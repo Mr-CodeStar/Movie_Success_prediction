@@ -26,26 +26,26 @@ driver.execute_script("window.scrollTo(0, 0);")
 
 i_button_xpath='//*[@id="__next"]/main/div[2]/div[3]/section/section/div/section/section/div[2]/div/section/div[2]/div[2]/ul/li[{}]/div/div/div/div[1]/div[3]/button'
 try:
-    var=713
+    # var=713
     for i in range(1,1001):
-        if i>=var:
-            button = wait.until(EC.presence_of_element_located((By.XPATH, i_button_xpath.format(i))))
-            driver.execute_script("arguments[0].scrollIntoView(true);", button)
-            time.sleep(1)
-            driver.execute_script("arguments[0].click();", button)
-            time.sleep(1)
-            popup = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, "/html/body/div[4]/div[2]/div"))
-            )
-            popup_html = popup.get_attribute("outerHTML")
-            with open(f"scrap/popup{i}.html", "w", encoding="utf-8") as f:
-                f.write(popup_html)
-            time.sleep(1)
-            close_button_xpath='/html/body/div[4]/div[2]/div/div[1]/button'
-            close_button = wait.until(EC.presence_of_element_located((By.XPATH, close_button_xpath)))
-            time.sleep(1)
-            driver.execute_script("arguments[0].click();", close_button)
-            time.sleep(1)
+        # if i>=var:
+        button = wait.until(EC.presence_of_element_located((By.XPATH, i_button_xpath.format(i))))
+        driver.execute_script("arguments[0].scrollIntoView(true);", button)
+        time.sleep(1)
+        driver.execute_script("arguments[0].click();", button)
+        time.sleep(1)
+        popup = WebDriverWait(driver, 10).until(
+        EC.presence_of_element_located((By.XPATH, "/html/body/div[4]/div[2]/div"))
+        )
+        popup_html = popup.get_attribute("outerHTML")
+        with open(f"scrap/popup{i}.html", "w", encoding="utf-8") as f:
+            f.write(popup_html)
+        time.sleep(1)
+        close_button_xpath='/html/body/div[4]/div[2]/div/div[1]/button'
+        close_button = wait.until(EC.presence_of_element_located((By.XPATH, close_button_xpath)))
+        time.sleep(1)
+        driver.execute_script("arguments[0].click();", close_button)
+        time.sleep(1)
 except Exception as e:
     print(f"Error while clicking button: {e}")
 
