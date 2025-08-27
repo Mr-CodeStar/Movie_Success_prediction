@@ -26,7 +26,7 @@ Libraries used to extract data include: **requests**, **BeautifulSoup**, **Selen
 - `genre`: Categorical feature representing movie genre (e.g., Action, Drama, Comedy)
 - `year`: Release year of the movie
 - `duration`: Runtime of the movie in minutes
-- `director': Categorical feature representing the filmmaker whose reputation and style may influence a movie's success.
+- `director`: Categorical feature representing the filmmaker whose reputation and style may influence a movie's success.
 ---
 
 [For the director column i took only those names which have movies more than or equal to 10 and the rest are labeled as "others"]
